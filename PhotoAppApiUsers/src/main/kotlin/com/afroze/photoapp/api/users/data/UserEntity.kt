@@ -10,7 +10,7 @@ import javax.persistence.Id
 class UserEntity(
     @Id
     @GeneratedValue
-    var id: Long,
+    var id: Long?,
 
     @Column(nullable = false, length = 50)
     var firstName: String,
