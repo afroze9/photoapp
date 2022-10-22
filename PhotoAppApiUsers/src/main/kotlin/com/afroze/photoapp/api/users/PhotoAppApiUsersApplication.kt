@@ -9,5 +9,5 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient
 class PhotoAppApiUsersApplication
 
 fun main(args: Array<String>) {
-	runApplication<PhotoAppApiUsersApplication>(*args)
+    runApplication<PhotoAppApiUsersApplication>(*args)
 }
