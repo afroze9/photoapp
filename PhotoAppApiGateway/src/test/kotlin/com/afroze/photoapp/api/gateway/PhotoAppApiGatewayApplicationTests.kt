@@ -1,4 +1,4 @@
-package com.afroze.photoapp.api
+package com.afroze.photoapp.api.gateway
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
