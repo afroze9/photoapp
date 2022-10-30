@@ -13,8 +13,8 @@ data class CreateUserRequestModel(
     @field:Size(min=2, message = "Last name must be at least 2 characters")
     var lastName: String,
 
-    @field:NotNull()
-    @field:Email()
+    @field:NotNull
+    @field:Email
     var email: String,
 
     @field:NotNull(message = "Password is required")

@@ -5,5 +5,4 @@ data class CreateUserResponseModel(
     var lastName: String,
     var email: String,
     var userId: String,
-) {
-}
+)
