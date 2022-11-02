@@ -6,6 +6,7 @@ import com.afroze.photoapp.api.users.ui.model.CreateUserRequestModel
 import com.afroze.photoapp.api.users.ui.model.CreateUserResponseModel
 import org.springframework.core.env.Environment
 import org.springframework.http.HttpStatus
+import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -20,7 +21,10 @@ class UsersController(val usersService: UsersService, val environment: Environme
     @GetMapping("/status/check")
     fun status():String = "Working: " + environment.getProperty("token.secret")
 
-    @PostMapping
+    @PostMapping(
+        consumes = [ MediaType.APPLICATION_JSON_VALUE ],
+        produces = [ MediaType.APPLICATION_JSON_VALUE ],
+    )
     fun createUser(@Valid @RequestBody user: CreateUserRequestModel): ResponseEntity<CreateUserResponseModel> {
         val userDto:UserDto = user.toUserDto()
         val createdUser = usersService.createUser(userDto)
