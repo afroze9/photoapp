@@ -4,6 +4,7 @@ import com.afroze.photoapp.api.users.service.UsersService
 import com.afroze.photoapp.api.users.shared.UserDto
 import com.afroze.photoapp.api.users.ui.model.CreateUserRequestModel
 import com.afroze.photoapp.api.users.ui.model.CreateUserResponseModel
+import org.springframework.core.env.Environment
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -15,9 +16,9 @@ import javax.validation.Valid
 
 @RestController
 @RequestMapping("/users")
-class UsersController(val usersService: UsersService) {
+class UsersController(val usersService: UsersService, val environment: Environment) {
     @GetMapping("/status/check")
-    fun status():String = "Working"
+    fun status():String = "Working: " + environment.getProperty("token.secret")
 
     @PostMapping
     fun createUser(@Valid @RequestBody user: CreateUserRequestModel): ResponseEntity<CreateUserResponseModel> {
